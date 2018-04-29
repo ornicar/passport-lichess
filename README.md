@@ -80,25 +80,3 @@ as a starting point for their own web applications.  The example shows how to
 authenticate users using Facebook.  However, because both Facebook and Lichess
 use OAuth 2.0, the code is similar.  Simply replace references to Facebook with
 corresponding references to Lichess.
-
-## Contributing
-
-#### Tests
-
-The test suite is located in the `test/` directory.  All new features are
-expected to have corresponding test cases.  Ensure that the complete test suite
-passes by executing:
-
-```bash
-$ make test
-```
-
-#### Coverage
-
-The test suite covers 100% of the code base.  All new feature development is
-expected to maintain that level.  Coverage reports can be viewed by executing:
-
-```bash
-$ make test-cov
-$ make view-cov
-```

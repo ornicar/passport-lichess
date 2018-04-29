@@ -80,3 +80,7 @@ as a starting point for their own web applications.  The example shows how to
 authenticate users using Facebook.  However, because both Facebook and Lichess
 use OAuth 2.0, the code is similar.  Simply replace references to Facebook with
 corresponding references to Lichess.
+
+## Credits
+
+This library is a based on [Jared Hanson's passport-github](https://github.com/jaredhanson/passport-github).

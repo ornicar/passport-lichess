@@ -1,10 +1,11 @@
 {
   "name": "passport-lichess",
-  "version": "0.1",
+  "version": "1.0.0",
   "description": "Lichess authentication strategy for Passport.",
   "keywords": [
     "passport",
     "lichess",
+    "chess",
     "auth",
     "authn",
     "authentication",
@@ -12,8 +13,8 @@
   ],
   "author": {
     "name": "Thibault Duplessis",
-    "email": "thibault@lichess.org",
-    "url": "https://lichess.org"
+    "email": "contact@lichess.org",
+    "url": "https://lichess.org/api"
   },
   "repository": {
     "type": "git",

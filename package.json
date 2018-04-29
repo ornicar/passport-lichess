@@ -1,6 +1,6 @@
 {
   "name": "passport-lichess",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Lichess authentication strategy for Passport.",
   "keywords": [
     "passport",

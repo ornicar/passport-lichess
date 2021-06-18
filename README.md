@@ -17,15 +17,6 @@ $ npm install passport-lichess
 
 ## Usage
 
-#### Create an Application
-
-Before using `passport-lichess`, you must register an application with Lichess.
-If you have not already done so, a new application can be created at
-[developer applications](https://lichess.org/account/oauth/app) within
-Lichess's settings panel. Your application will be issued a client ID and client
-secret, which need to be provided to the strategy. You will also need to
-configure a callback URL which matches the route in your application.
-
 #### Configure Strategy
 
 The Lichess authentication strategy authenticates users using a Lichess account
@@ -40,8 +31,7 @@ complete authentication.
 var LichessStrategy = require('passport-lichess').Strategy;
 
 passport.use(new LichessStrategy({
-    clientID: LICHESS_CLIENT_ID,
-    clientSecret: LICHESS_CLIENT_SECRET,
+    clientID: 'arbitrary-unique-id',
     callbackURL: "http://127.0.0.1:3000/auth/lichess/callback"
   },
   function(accessToken, refreshToken, profile, cb) {

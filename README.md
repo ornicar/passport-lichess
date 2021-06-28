@@ -1,5 +1,7 @@
 # passport-lichess
 
+[![npm](https://img.shields.io/npm/v/passport-lichess)](https://www.npmjs.com/package/passport-lichess)
+
 [Passport](http://passportjs.org/) strategy for authenticating with [Lichess](https://lichess.org)
 using the OAuth 2.0 API.
 
@@ -30,16 +32,19 @@ complete authentication.
 ```js
 var LichessStrategy = require('passport-lichess').Strategy;
 
-passport.use(new LichessStrategy({
-    clientID: 'arbitrary-unique-id',
-    callbackURL: "http://127.0.0.1:3000/auth/lichess/callback"
-  },
-  function(accessToken, refreshToken, profile, cb) {
-    User.findOrCreate({ lichessId: profile.id }, function (err, user) {
-      return cb(err, user);
-    });
-  }
-));
+passport.use(
+  new LichessStrategy(
+    {
+      clientID: 'arbitrary-unique-id',
+      callbackURL: 'http://127.0.0.1:3000/auth/lichess/callback',
+    },
+    function (accessToken, refreshToken, profile, cb) {
+      User.findOrCreate({ lichessId: profile.id }, function (err, user) {
+        return cb(err, user);
+      });
+    }
+  )
+);
 ```
 
 #### Authenticate Requests
@@ -51,24 +56,21 @@ For example, as route middleware in an [Express](http://expressjs.com/)
 application:
 
 ```js
-app.get('/auth/lichess',
-  passport.authenticate('lichess'));
+app.get('/auth/lichess', passport.authenticate('lichess'));
 
-app.get('/auth/lichess/callback',
-  passport.authenticate('lichess', { failureRedirect: '/login' }),
-  function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect('/');
-  });
+app.get('/auth/lichess/callback', passport.authenticate('lichess', { failureRedirect: '/login' }), function (req, res) {
+  // Successful authentication, redirect home.
+  res.redirect('/');
+});
 ```
 
 ## Examples
 
 Developers using the popular [Express](http://expressjs.com/) web framework can
 refer to an [example](https://github.com/passport/express-4.x-facebook-example)
-as a starting point for their own web applications.  The example shows how to
-authenticate users using Facebook.  However, because both Facebook and Lichess
-use OAuth 2.0, the code is similar.  Simply replace references to Facebook with
+as a starting point for their own web applications. The example shows how to
+authenticate users using Facebook. However, because both Facebook and Lichess
+use OAuth 2.0, the code is similar. Simply replace references to Facebook with
 corresponding references to Lichess.
 
 ## Credits
